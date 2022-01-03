@@ -7,6 +7,8 @@ import 'package:musicplayer/core/constants/size_config.dart';
 class LoginPage extends StatelessWidget {
   var _emailcontroller = TextEditingController();
 
+  var _passwordcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -49,8 +51,11 @@ class LoginPage extends StatelessWidget {
                         //--code to remove border
                         border: Border.fromBorderSide(BorderSide.none),
                         borderRadius: BorderRadius.circular(10),
-                        child: Center(
+                        child: SizedBox(
+                          height: getH(110),
                           child: TextFormField(
+                            style: TextStyle(
+                                color: whitecolor, fontWeight: FontWeight.w500),
                             controller: _emailcontroller,
                             decoration: InputDecoration(
                               suffix: Container(
@@ -64,7 +69,10 @@ class LoginPage extends StatelessWidget {
                                 ),
                                 height: getW(50),
                                 width: getW(50),
-                                child: Icon(Icons.check,color: Colors.white,),
+                                child: Icon(
+                                  Icons.check,
+                                  color: Colors.white,
+                                ),
                               ),
                               focusedBorder: OutlineInputBorder(
                                   borderSide:
@@ -81,25 +89,77 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      TextFormField(
-                        controller: _emailcontroller,
-                        decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(width: 0)),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(
-                                  getW(8),
+                      SizedBox(
+                        height: getH(110),
+                        child: TextFormField(
+                          style: TextStyle(
+                              color: whitecolor, fontWeight: FontWeight.w500),
+                          controller: _passwordcontroller,
+                          decoration: InputDecoration(
+                              suffix: TextButton(
+                                child: Text(
+                                  "SHOW",
+                                  style: TextStyle(color: whitecolor),
+                                ),
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                    backgroundColor: Colors.blueGrey,
+                                    maximumSize: Size(getW(160), getH(80)),
+                                    fixedSize: Size(getW(160), getH(60))),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(width: 0)),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(
+                                    getW(8),
+                                  ),
                                 ),
                               ),
-                            ),
-                            hintText: "Email",
-                            filled: true,
-                            fillColor: inputcolor),
+                              hintText: "Your password",
+                              filled: true,
+                              fillColor: inputcolor),
+                        ),
                       ),
                     ],
                   ),
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("SIGN IN"),
+                style: ElevatedButton.styleFrom(
+                  primary: buttoncolor,
+                  fixedSize: Size(getW(630), getH(110)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(getW(50)))),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: getW(100),
+                    child: Divider(
+                      height: 2,
+                      thickness: 5,
+                      color: Colors.blueGrey
+                    ),
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: getW(40)),
+                    child: Text("OR",style: TextStyle(color: whitecolor,fontWeight: FontWeight.w500),),
+                  ),
+                 SizedBox(
+                    width: getW(100),
+                    child: Divider(
+                      height: 2,
+                      thickness: 5,
+                      color: Colors.blueGrey
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
