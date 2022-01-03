@@ -161,6 +161,25 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
+               GlassContainer(
+                        blur: 2,
+                        shadowStrength: 20,
+                        opacity: 0.2,
+
+                        //--code to remove border
+                        border: Border.fromBorderSide(BorderSide.none),
+                        borderRadius: BorderRadius.circular(50),
+                        child:ElevatedButton(
+                onPressed: () {},
+                child: Text("SIGN IN"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.transparent,
+                  fixedSize: Size(getW(630), getH(110)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(getW(50)))),
+                ),
+              ),)
             ],
           ),
         ),
