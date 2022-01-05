@@ -1,8 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:musicplayer/pages/loginpage/login_page.dart';
+import 'package:musicplayer/pages/peoplelist/people_list.dart';
+import 'package:musicplayer/pages/splashpage/splash_page.dart';
+import 'package:musicplayer/provider/sign_in_provider.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'pages/statistics/statistic.dart';
+import 'provider/bottom_navigation_bar_provider.dart';
+import 'provider/drawer_provider.dart';
+import 'provider/search_provider.dart';
+import 'provider/statistics_provider.dart';
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => SignInProvider()),
+        ChangeNotifierProvider(create: (context) => BottomNavigationBarProvider()),
+        ChangeNotifierProvider(create: (context) =>DrawerProviderMy()),
+        ChangeNotifierProvider(create: (context) =>SearchProviderMy()),
+        ChangeNotifierProvider(create: (context) =>StatisticsProviderMy()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -14,18 +37,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+         primarySwatch: Colors.blue,
       ),
-      home:  LoginPage(),
+      home:  StatisticsPage(),
     );
   }
 }
