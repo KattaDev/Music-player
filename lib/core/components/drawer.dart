@@ -1,12 +1,11 @@
 import 'dart:ui';
 
-import 'package:atro/consts/Colors/colors.dart';
-import 'package:atro/consts/SizeConfig/size_config.dart';
-import 'package:atro/consts/Styles/hint_style.dart';
-import 'package:atro/consts/readyWidgets/circle_avatar_with_badge.dart';
-import 'package:atro/provider/drawer_provider.dart';
-import 'package:atro/provider/search_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:musicplayer/core/components/circle_avatar_with_badge.dart';
+import 'package:musicplayer/core/constants/colors.dart';
+import 'package:musicplayer/core/constants/size_config.dart';
+import 'package:musicplayer/provider/drawer_provider.dart';
+import 'package:musicplayer/provider/search_provider.dart';
 import 'package:provider/provider.dart';
 
 class DrawerMy extends StatelessWidget {
@@ -17,27 +16,27 @@ class DrawerMy extends StatelessWidget {
     SizeConfig().init(context);
     return Drawer(
       child: Ink(
-        width: gpsW(700.0),
-        height: gpsH(1624.0),
+        width: getW(700.0),
+        height: getH(1624.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.bottomRight,
             end: Alignment.topLeft,
             colors: [
-              drawerInkStartColor,
+              bluecolor,
               drawerInkEndColor,
             ],
           ),
         ),
         child: Column(
           children: [
-            SizedBox(height: gpsH(190.0)),
+            SizedBox(height: getH(190.0)),
             ClipRect(
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 0.0),
                 child: Ink(
-                  height: gpsH(80.0),
-                  width: gpsW(410.0),
+                  height: getH(80.0),
+                  width: getW(410.0),
                   child: TextFormField(
                     controller:
                         context.watch<SearchProviderMy>().searchController,
@@ -45,7 +44,6 @@ class DrawerMy extends StatelessWidget {
                       filled: true,
                       fillColor: Colors.white.withOpacity(.07),
                       hintText: "Find something",
-                      hintStyle: hintStyle,
                       suffixIcon: const Icon(
                         Icons.search_outlined,
                         color: Colors.white,
@@ -53,7 +51,7 @@ class DrawerMy extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(
-                          gpsW(35.0),
+                          getW(35.0),
                         ),
                       ),
                     ),
@@ -61,7 +59,7 @@ class DrawerMy extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: gpsH(150.0)),
+            SizedBox(height: getH(150.0)),
             ListView.builder(
               shrinkWrap: true,
               itemCount: context.watch<DrawerProviderMy>().items.length,
@@ -72,7 +70,7 @@ class DrawerMy extends StatelessWidget {
                   },
                   leading: CircleAvatar(
                     backgroundColor: Colors.transparent,
-                    radius: gpsW(45.0),
+                    radius: getW(45.0),
                     child: Icon(
                       context.watch<DrawerProviderMy>().itemIcons[__],
                       color: Colors.white,
@@ -81,16 +79,16 @@ class DrawerMy extends StatelessWidget {
                   title: Text(
                     context.watch<DrawerProviderMy>().items[__],
                     style: TextStyle(
-                        fontSize: gpsW(25.0),
+                        fontSize: getW(25.0),
                         fontWeight: FontWeight.w700,
-                        letterSpacing: gpsW(3.0),
+                        letterSpacing: getW(3.0),
                         color: Colors.white,
                         fontFamily: "Monserrat"),
                   ),
                 );
               },
             ),
-            SizedBox(height: gpsH(30.0)),
+            SizedBox(height: getH(30.0)),
             ListTile(
               leading: const CircleAvatarWithBadgeMy(color: Colors.white),
               title: Column(
@@ -100,14 +98,14 @@ class DrawerMy extends StatelessWidget {
                     "Your name",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: gpsW(30.0),
+                      fontSize: getW(30.0),
                     ),
                   ),
                   Text(
                     "Your Status",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: gpsW(22.0),
+                      fontSize: getW(22.0),
                     ),
                   ),
                 ],

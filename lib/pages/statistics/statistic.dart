@@ -132,7 +132,7 @@ class StatisticsPage extends StatelessWidget {
           ),
           Text(
             'Available now: \$3550.36',
-            style: TextStyle(color: appBarSubtitleColor, fontSize: getW(25.0)),
+            style: TextStyle(color: textappbarcolor, fontSize: getW(25.0)),
           ),
         ],
       ),

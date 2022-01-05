@@ -1,5 +1,5 @@
-import 'package:atro/consts/SizeConfig/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:musicplayer/core/constants/size_config.dart';
 
 class CircleAvatarWithBadgeMy extends StatelessWidget {
  final Color color;
@@ -8,8 +8,8 @@ class CircleAvatarWithBadgeMy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Ink(
-      height: gpsH(124.0),
-      width: gpsW(80.0),
+      height: getH(124.0),
+      width: getW(80.0),
       child: Stack(
         children: [
           Align(
@@ -18,7 +18,7 @@ class CircleAvatarWithBadgeMy extends StatelessWidget {
               Icons.circle,
               color: color,
                 
-              size: gpsW(15.0),
+              size: getW(15.0),
             ),
           ),
           Align(
@@ -26,7 +26,7 @@ class CircleAvatarWithBadgeMy extends StatelessWidget {
             child: CircleAvatar(
               backgroundImage:
                const    AssetImage("assets/images/img.jpg"),
-              radius: gpsW(40.0),
+              radius: getW(40.0),
             ),
           ),
         ],

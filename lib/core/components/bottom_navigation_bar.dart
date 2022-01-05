@@ -1,8 +1,9 @@
-import 'package:atro/consts/Colors/colors.dart';
-import 'package:atro/consts/SizeConfig/size_config.dart';
-import 'package:atro/provider/bottom_navigation_bar_provider.dart';
-import 'package:atro/ui/statistics_page.dart';
+
 import 'package:flutter/material.dart';
+import 'package:musicplayer/core/constants/colors.dart';
+import 'package:musicplayer/core/constants/size_config.dart';
+import 'package:musicplayer/pages/statistics/statistic.dart';
+import 'package:musicplayer/provider/bottom_navigation_bar_provider.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavigationBarMy extends StatefulWidget {
@@ -23,7 +24,7 @@ class _BottomNavigationBarMyState extends State<BottomNavigationBarMy> {
 
   _bottomNavigationBar() {
     return Container(
-      height: gpsH(148.0),
+      height: getH(148.0),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
